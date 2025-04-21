@@ -7,8 +7,11 @@ import os
 st.set_page_config(page_title="Dashboard Analisis Order", layout="wide")
 st.title("📊 Dashboard Analisis Order E-Commerce")
 
+#ambil data di github
+url = "https://github.com/Dperdiansyah/Data-Analisis-Order-E-Commerce/blob/main/all_data.csv"
+
 # Cek apakah file all_data.csv ada di lokasi yang diharapkan
-if not os.path.exists("all_data.csv"):
+if not os.path.exists(url):
     st.error("File 'all_data.csv' tidak ditemukan. Pastikan file berada di direktori yang benar.")
 else:
 # Load data hanya jika file ada
