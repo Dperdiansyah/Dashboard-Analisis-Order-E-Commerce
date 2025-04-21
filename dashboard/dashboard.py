@@ -7,15 +7,7 @@ import os
 st.set_page_config(page_title="Dashboard Analisis Order", layout="wide")
 st.title("📊 Dashboard Analisis Order E-Commerce")
 
-#ambil data di github
-url = "https://github.com/Dperdiansyah/Data-Analisis-Order-E-Commerce/blob/main/all_data.csv"
-
-# Cek apakah file all_data.csv ada di lokasi yang diharapkan
-if not os.path.exists(url):
-    st.error("File 'all_data.csv' tidak ditemukan. Pastikan file berada di direktori yang benar.")
-else:
-# Load data hanya jika file ada
-    df = pd.read_csv("all_data.csv", nrows=50000, low_memory=False, parse_dates=["order_purchase_timestamp"])
+df = pd.read_csv("https://raw.githubusercontent.com/Dperdiansyah/Data-Analisis-Order-E-Commerce/refs/heads/main/all_data.csv", nrows=50000, low_memory=False, parse_dates=["order_purchase_timestamp"])
 
 # Sidebar - Filter Tanggal
 st.sidebar.header("📅 Filter Tanggal")
