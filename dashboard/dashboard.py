@@ -2,12 +2,17 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import os
 
 st.set_page_config(page_title="Dashboard Analisis Order", layout="wide")
 st.title("📊 Dashboard Analisis Order E-Commerce")
 
-# Load all data
-df = pd.read_csv("all_data.csv", nrows=50000, low_memory=False, parse_dates=["order_purchase_timestamp"])
+# Cek apakah file all_data.csv ada di lokasi yang diharapkan
+if not os.path.exists("all_data.csv"):
+    st.error("File 'all_data.csv' tidak ditemukan. Pastikan file berada di direktori yang benar.")
+else:
+# Load data hanya jika file ada
+    df = pd.read_csv("all_data.csv", nrows=50000, low_memory=False, parse_dates=["order_purchase_timestamp"])
 
 # Sidebar - Filter Tanggal
 st.sidebar.header("📅 Filter Tanggal")
