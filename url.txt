@@ -1,1 +1,1 @@
-https://share.streamlit.io/
+https://dashboards2.streamlit.app/
